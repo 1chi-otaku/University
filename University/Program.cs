@@ -30,7 +30,7 @@ namespace University
 
           university.Print();
 
-
+            university.StudentList();
 
 
 

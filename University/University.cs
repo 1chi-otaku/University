@@ -81,7 +81,21 @@ namespace University
             }
             Console.WriteLine(departments_count + " departments");
             Console.WriteLine(student_groups + " students groups");
-
+        }
+        public void StudentList()
+        {
+            for (int i = 0; i < faculties.Count; i++)
+            {
+                Console.WriteLine("Faculty #" + i+1);
+                for (int j = 0; j < faculties[i].studentGroups.Count; j++)
+                {
+                    Console.WriteLine("Student Group #" + j + 1);
+                    for (int k = 0; k < faculties[i].studentGroups[j].Students.Count; k++)
+                    {
+                        faculties[i].studentGroups[j].Students[k].PrintInfo();
+                    }
+                }
+            }
         }
     }
 
