@@ -93,4 +93,22 @@ namespace University
         public void Study() => Console.WriteLine(Name + " from group " + Group + " is studying!");
 
     }
+    class StudentGroup
+    {
+        public List<Student> Students;
+
+        public StudentGroup(List<Student> students)
+        {
+            Students = students;
+        }
+        public StudentGroup(Student student)
+        {
+            Students = new List<Student>
+            {
+                student
+            };
+        }
+        
+
+    }
 }

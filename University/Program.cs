@@ -12,7 +12,7 @@ namespace University
         {
           Student student = new Student("Tom",Gender.Male,"#100011223","Ukraine","KNP-213",2);
 
-          student.PrintInfo();
+          
 
           
 
