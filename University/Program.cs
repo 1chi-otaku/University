@@ -28,9 +28,11 @@ namespace University
 
           University university = new University(faculty);
 
-          university.Print();
+          UniversityStatisticsHandler.Print(university);
+          UniversityStatisticsHandler.StudentList(university);
+          UniversityStatisticsHandler.TeacherList(university);
 
-            university.StudentList();
+
 
 
 

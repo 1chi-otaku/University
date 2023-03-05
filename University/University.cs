@@ -68,35 +68,7 @@ namespace University
         {
             faculties.Remove(faculty);
         }
-        public void Print()
-        {
-            int departments_count = 0;
-            int student_groups = 0;
-            Console.WriteLine("University has:");
-            Console.WriteLine(faculties.Count + " faculties");
-            for (int i = 0; i < faculties.Count; i++)
-            {
-                departments_count += faculties[i].departments.Count;
-                student_groups += faculties[i].studentGroups.Count;
-            }
-            Console.WriteLine(departments_count + " departments");
-            Console.WriteLine(student_groups + " students groups");
-        }
-        public void StudentList()
-        {
-            for (int i = 0; i < faculties.Count; i++)
-            {
-                Console.WriteLine("Faculty #" + i+1);
-                for (int j = 0; j < faculties[i].studentGroups.Count; j++)
-                {
-                    Console.WriteLine("Student Group #" + j + 1);
-                    for (int k = 0; k < faculties[i].studentGroups[j].Students.Count; k++)
-                    {
-                        faculties[i].studentGroups[j].Students[k].PrintInfo();
-                    }
-                }
-            }
-        }
+       
     }
 
     class Faculty

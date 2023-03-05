@@ -94,6 +94,7 @@ namespace University
 
         public void Study() => Console.WriteLine(Name + " from group " + Group + " is studying!");
 
+        
     }
     class StudentGroup
     {
