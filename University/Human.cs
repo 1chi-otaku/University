@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace University
 {
@@ -95,20 +97,77 @@ namespace University
     }
     class StudentGroup
     {
+        public string GroupName { get; set; }
         public List<Student> Students;
 
-        public StudentGroup(List<Student> students)
+        public StudentGroup()
+        {
+            Students = new List<Student>();
+        }
+        public StudentGroup(List<Student> students,string groupName)
         {
             Students = students;
+            GroupName = groupName;
         }
-        public StudentGroup(Student student)
+        public StudentGroup(Student student, string groupName)
         {
             Students = new List<Student>
             {
                 student
             };
+            GroupName = groupName;
+        }
+        public void AddStudent(Student student)
+        {
+            Students.Add(student);
+        }
+        public void RemoveStudent(Student student)
+        {
+            Students.Remove(student);
+        }
+
+        public void PrintStudents()
+        {
+            Console.WriteLine("Group - " + GroupName);
+            for (int i = 0; i < Students.Count; i++)
+            {
+                Console.WriteLine(i+1 + "|");
+                Students[i].PrintInfo();
+            }
         }
         
+
+    }
+
+    class Teacher:Human
+    {
+        public string Position { get; set; }
+        public Teacher() : base()
+        {
+            Position = string.Empty;
+        }
+        public Teacher(string name, Gender gender, string passportId, string residence, string position):base(name,gender,passportId,residence)
+        {
+            Position = position;
+        }
+        public virtual void Teach()
+        {
+            Console.WriteLine(Name + " is teaching!");
+        }
+    }
+    class DepHead : Teacher
+    {
+        public DepHead():base()
+        {
+        }
+        public DepHead(string name, Gender gender, string passportId, string residence, string position) : base(name, gender, passportId, residence,position)
+        {
+        }
+        public override void Teach()
+        {
+            base.Teach();
+            Console.WriteLine(Name + " is a Department Head!");
+        }
 
     }
 }
